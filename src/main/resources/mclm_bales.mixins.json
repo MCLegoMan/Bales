@@ -11,6 +11,7 @@
 		"client.BlockModelsAccessor",
 		"client.BlockModelsMixin",
 		"client.FluidRendererMixin",
-		"client.MinecraftClientMixin"
+		"client.MinecraftClientMixin",
+		"client.SpriteTexturedVertexConsumerMixin"
 	]
 }

@@ -20,6 +20,7 @@ public class BalesConfig {
 	protected static ConfigProvider configProvider;
 	private static String blockId = "minecraft:hay_block";
 	private static BlockState blockState = Blocks.AIR.getDefaultState();
+	private static boolean replaceSpriteTextures = true;
 	public static void init() {
 		try {
 			configProvider = new ConfigProvider();
@@ -33,11 +34,15 @@ public class BalesConfig {
 	}
 	protected static void create() {
 		configProvider.add(new Pair<>("block", "minecraft:hay_block"));
+		configProvider.add(new Pair<>("replaceSpriteTextures", false));
 	}
 	protected static void assign() {
-		blockId = config.getOrDefault("block", "minecraft:hay_block");
+		replaceSpriteTextures = config.getOrDefault("replaceSpriteTextures", false);
 	}
 	public static BlockState getBlockState() {
 		return blockState;
+	}
+	public static boolean getReplaceSpriteTextures() {
+		return replaceSpriteTextures;
 	}
 }
