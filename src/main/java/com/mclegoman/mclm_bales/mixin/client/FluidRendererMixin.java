@@ -29,11 +29,12 @@ public abstract class FluidRendererMixin {
 		BlockModelsAccessor blockModels = ((BlockModelsAccessor) MinecraftClient.getInstance().getBakedModelManager().getBlockModels());
 		BakedModel bakedModel = blockModels.getModels().get(BalesConfig.getBlockState());
 		if (bakedModel == null) bakedModel = blockModels.getModelManager().getMissingModel();
-		this.lavaSprites[0] = bakedModel.getParticleSprite();
-		this.lavaSprites[1] = bakedModel.getParticleSprite();
-		this.waterSprites[0] = bakedModel.getParticleSprite();
-		this.waterSprites[1] = bakedModel.getParticleSprite();
-		this.waterOverlaySprite = bakedModel.getParticleSprite();
+		Sprite sprite = bakedModel.getParticleSprite();
+		this.lavaSprites[0] = sprite;
+		this.lavaSprites[1] = sprite;
+		this.waterSprites[0] = sprite;
+		this.waterSprites[1] = sprite;
+		this.waterOverlaySprite = sprite;
 		ci.cancel();
 	}
 }
