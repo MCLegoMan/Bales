@@ -6,9 +6,11 @@
 		"defaultRequire": 1
 	},
 	"client": [
-		"client.BlockModelsMixin",
-		"client.MinecraftClientMixin",
 		"client.AbstractBlockAccessor",
-		"client.BlockMixin"
+		"client.BlockMixin",
+		"client.BlockModelsAccessor",
+		"client.BlockModelsMixin",
+		"client.FluidRendererMixin",
+		"client.MinecraftClientMixin"
 	]
 }
