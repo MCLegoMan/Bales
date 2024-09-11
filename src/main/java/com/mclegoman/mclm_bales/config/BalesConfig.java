@@ -47,9 +47,12 @@ public class BalesConfig {
 		return blockState;
 	}
 	public static BlockState getBlockState(BlockState inputBlockState) {
-		return ignoreLiquids ? (inputBlockState.isLiquid() ? inputBlockState : getDefaultBlockState()) : getDefaultBlockState();
+		return getIgnoreLiquids() ? (inputBlockState.isLiquid() ? inputBlockState : getDefaultBlockState()) : getDefaultBlockState();
 	}
 	public static boolean getReplaceSpriteTextures() {
 		return replaceSpriteTextures;
+	}
+	public static boolean getIgnoreLiquids() {
+		return ignoreLiquids;
 	}
 }
