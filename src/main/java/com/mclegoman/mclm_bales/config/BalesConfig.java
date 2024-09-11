@@ -37,6 +37,7 @@ public class BalesConfig {
 		configProvider.add(new Pair<>("replaceSpriteTextures", false));
 	}
 	protected static void assign() {
+		blockId = config.getOrDefault("block", "minecraft:hay_block");
 		replaceSpriteTextures = config.getOrDefault("replaceSpriteTextures", false);
 	}
 	public static BlockState getBlockState() {
