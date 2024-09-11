@@ -19,6 +19,7 @@ public class BalesConfig {
 	protected static SimpleConfig config;
 	protected static ConfigProvider configProvider;
 	private static String blockId = "minecraft:hay_block";
+	private static boolean ignoreLiquids = true;
 	private static BlockState blockState = Blocks.AIR.getDefaultState();
 	private static boolean replaceSpriteTextures = true;
 	public static void init() {
@@ -35,13 +36,18 @@ public class BalesConfig {
 	protected static void create() {
 		configProvider.add(new Pair<>("block", "minecraft:hay_block"));
 		configProvider.add(new Pair<>("replaceSpriteTextures", false));
+		configProvider.add(new Pair<>("ignoreLiquids", true));
 	}
 	protected static void assign() {
 		blockId = config.getOrDefault("block", "minecraft:hay_block");
 		replaceSpriteTextures = config.getOrDefault("replaceSpriteTextures", false);
+		ignoreLiquids = config.getOrDefault("ignoreLiquids", true);
 	}
-	public static BlockState getBlockState() {
+	public static BlockState getDefaultBlockState() {
 		return blockState;
+	}
+	public static BlockState getBlockState(BlockState inputBlockState) {
+		return ignoreLiquids ? (inputBlockState.isLiquid() ? inputBlockState : getDefaultBlockState()) : getDefaultBlockState();
 	}
 	public static boolean getReplaceSpriteTextures() {
 		return replaceSpriteTextures;

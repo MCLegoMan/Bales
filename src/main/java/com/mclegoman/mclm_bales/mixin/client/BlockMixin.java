@@ -23,6 +23,6 @@ public abstract class BlockMixin {
 	@Shadow protected abstract Block asBlock();
 	@Inject(at = @At(value = "HEAD"), method = "getSoundGroup", cancellable = true)
 	private void loafy$getSoundGroup(BlockState state, CallbackInfoReturnable<BlockSoundGroup> cir) {
-		if (!this.asBlock().getDefaultState().equals(BalesConfig.getBlockState())) cir.setReturnValue(((AbstractBlockAccessor)BalesConfig.getBlockState().getBlock()).invokeGetSoundGroup(BalesConfig.getBlockState()));
+		if (!this.asBlock().getDefaultState().equals(BalesConfig.getBlockState(state))) cir.setReturnValue(((AbstractBlockAccessor)BalesConfig.getBlockState(state).getBlock()).invokeGetSoundGroup(BalesConfig.getBlockState(state)));
 	}
 }

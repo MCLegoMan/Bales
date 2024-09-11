@@ -28,7 +28,7 @@ public abstract class FluidRendererMixin {
 	private void loafy$onResourceReload(CallbackInfo ci) {
 		if (BalesConfig.getReplaceSpriteTextures()) {
 			BlockModelsAccessor blockModels = ((BlockModelsAccessor) MinecraftClient.getInstance().getBakedModelManager().getBlockModels());
-			BakedModel bakedModel = blockModels.getModels().get(BalesConfig.getBlockState());
+			BakedModel bakedModel = blockModels.getModels().get(BalesConfig.getDefaultBlockState());
 			if (bakedModel == null) bakedModel = blockModels.getModelManager().getMissingModel();
 			Sprite sprite = bakedModel.getParticleSprite();
 			this.lavaSprites[0] = sprite;

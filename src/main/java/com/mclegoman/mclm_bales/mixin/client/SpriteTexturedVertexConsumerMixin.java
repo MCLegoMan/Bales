@@ -27,7 +27,7 @@ public abstract class SpriteTexturedVertexConsumerMixin {
 	private void loafy$init(VertexConsumer delegate, Sprite sprite, CallbackInfo ci) {
 		if (BalesConfig.getReplaceSpriteTextures()) {
 			BlockModelsAccessor blockModels = ((BlockModelsAccessor) MinecraftClient.getInstance().getBakedModelManager().getBlockModels());
-			BakedModel bakedModel = blockModels.getModels().get(BalesConfig.getBlockState());
+			BakedModel bakedModel = blockModels.getModels().get(BalesConfig.getDefaultBlockState());
 			if (bakedModel == null) bakedModel = blockModels.getModelManager().getMissingModel();
 			this.sprite = bakedModel.getParticleSprite();
 		}

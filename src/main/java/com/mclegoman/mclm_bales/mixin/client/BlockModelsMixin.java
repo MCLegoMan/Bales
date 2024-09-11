@@ -27,7 +27,7 @@ public abstract class BlockModelsMixin {
 	@Shadow @Final private BakedModelManager modelManager;
 	@Inject(at = @At(value = "HEAD"), method = "getModel", cancellable = true)
 	private void loafy$getModel(BlockState state, CallbackInfoReturnable<BakedModel> cir) {
-		BakedModel bakedModel = this.models.get(BalesConfig.getBlockState());
+		BakedModel bakedModel = this.models.get(BalesConfig.getBlockState(state));
 		if (bakedModel == null) bakedModel = this.modelManager.getMissingModel();
 		cir.setReturnValue(bakedModel);
 	}
